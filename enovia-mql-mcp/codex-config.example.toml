@@ -1,0 +1,9 @@
+[mcp_servers.enovia]
+command = "java"
+args = ["-jar", "C:\\tools\\enovia-mql-mcp-0.1.0.jar"]
+startup_timeout_sec = 30
+
+[mcp_servers.enovia.env]
+MQL_EXECUTABLE = "C:\\DassaultSystemes\\R2023x\\...\\mql.exe"
+MQL_BOOTFILE = "matrix-r"
+MQL_TIMEOUT_SECONDS = "30"
