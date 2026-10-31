@@ -16,7 +16,7 @@ This standalone project adds a local MCP server to the existing `being1943/Enovi
 
 The tool taxonomy starts from Matrix primitives (MQL adapter, `bus`, and relationship/connection expansion), not from business modules such as EBOM or MBOM.
 
-## Requirements
+See [Matrix MQL data model notes](docs/MQL_DATA_MODEL.md) for the distinction between bus objects, relationship schema definitions, and connection instances.\n\n## Requirements
 
 - Windows with an installed ENOVIA MQL client and a working local login/bootstrap configuration.
 - Java 17 or later.
