@@ -12,7 +12,7 @@ public final class MqlCliClient {
   String command=MqlSafety.validate(raw);
   int timeout=30; try{timeout=Integer.parseInt(System.getenv().getOrDefault("MQL_TIMEOUT_SECONDS","30"));}catch(Exception ignored){}
   timeout=Math.max(3,Math.min(300,timeout));
-  Path dir=Files.createTempDirectory("enovia-mql-mcp-"),out=dir.resolve("out.txt"),err=dir.resolve("err.txt");
+  Path dir=Files.createTempDirectory("enovia-mql-mcp-"),out=dir.resolve("out.txt"),err=dir.resolve("err.txt"),processOut=dir.resolve("process-out.txt"),processErr=dir.resolve("process-err.txt");
   try{
    List<String>a=new ArrayList<>();a.add(exe);
    String boot=System.getenv("MQL_BOOTFILE");if(boot!=null&&!boot.isBlank()){a.add("-b");a.add(boot);}
@@ -23,6 +23,6 @@ public final class MqlCliClient {
    String stderr=Files.exists(err)?Files.readString(err,StandardCharsets.UTF_8):"";
    if(p.exitValue()!=0||!stderr.isBlank())throw new IOException("MQL failed (exit "+p.exitValue()+"): "+stderr+(stdout.isBlank()?"":"\n"+stdout));
    return stdout.isBlank()?"(MQL completed; no output)":stdout;
-  }finally{Files.deleteIfExists(out);Files.deleteIfExists(err);Files.deleteIfExists(dir);}
+  }finally{Files.deleteIfExists(out);Files.deleteIfExists(err);Files.deleteIfExists(processOut);Files.deleteIfExists(processErr);Files.deleteIfExists(dir);}
  }
 }
