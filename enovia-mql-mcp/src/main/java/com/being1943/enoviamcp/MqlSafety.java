@@ -19,5 +19,5 @@ public final class MqlSafety {
   return c+";";
  }
  public static String token(String v,String label){if(v==null||!v.matches("[A-Za-z0-9_.*?@ -]{1,128}"))throw new IllegalArgumentException("Invalid "+label+"; allowed: letters, digits, spaces, _, -, ., *, ?, @.");return v;}
- public static String quoted(String v,String label){String x=token(v,label);return x.contains(" ")?"\\""+x+"\\"":x;}
+ public static String quoted(String v,String label){String x=token(v,label);return x.contains(" ")?"\"" + x + "\"":x;}
 }
