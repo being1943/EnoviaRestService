@@ -12,7 +12,7 @@ This standalone project adds a local MCP server to the existing `being1943/Enovi
 | `mql_execute` | Executes one statement from a conservative read-only allowlist |
 | `bus_get` | `print bus ... select id type name revision current state owner vault policy;` |
 | `bus_find` | `temp query bus ... limit N;` |
-| `expand_bus` | Expands a bus object through one relationship type |
+| `expand_bus` | Expands a bus object through one relationship type |\n| `connection_get` | Reads one connection by connection ID |\n| `connection_find` | Queries connection instances by relationship type |\n| `schema_list_types` | Lists Type schema definitions |\n| `schema_list_relationships` | Lists Relationship schema definitions |\n| `schema_list_attributes` | Lists Attribute schema definitions |
 
 The tool taxonomy starts from Matrix primitives (MQL adapter, `bus`, and relationship/connection expansion), not from business modules such as EBOM or MBOM.
 
@@ -78,7 +78,7 @@ For a local build, point `args` to `target\\enovia-mql-mcp-0.1.0.jar`.
 
 - Real ENOVIA integration has not been exercised from this build environment because it requires the user's installed MQL client, bootstrap and database.
 - The exact command syntax and selectables should be verified on the target release.
-- Relationship-instance read/write, reverse expansion, schema introspection, attribute APIs, lifecycle, vault, JPO and business-specific BOM tools are not yet implemented.
+- Relationship-instance writes, reverse expansion, detailed schema printing, lifecycle, vault, JPO and business-specific BOM tools are not yet implemented.
 - MQL output is returned as text; structured parsing is a later increment.
 
 ## Next version
