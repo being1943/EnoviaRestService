@@ -8,5 +8,5 @@ class MqlSafetyTest {
  @Test void blocksStatementChaining(){assertThrows(IllegalArgumentException.class,()->MqlSafety.validate("print bus Part P-1 A; delete bus P-1"));}
  @Test void blocksMultiline(){assertThrows(IllegalArgumentException.class,()->MqlSafety.validate("print bus Part P-1 A\nlist type"));}
  @Test void blocksUnlistedCommands(){assertThrows(IllegalArgumentException.class,()->MqlSafety.validate("execute program SomeJPO"));}
- @Test void quotesNamesWithSpaces(){assertEquals("\\"Drawing of\\"",MqlSafety.quoted("Drawing of","relationship"));}
+ @Test void quotesNamesWithSpaces(){assertEquals("\"Drawing of\"",MqlSafety.quoted("Drawing of","relationship"));}
 }
